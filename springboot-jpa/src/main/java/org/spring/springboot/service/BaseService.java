@@ -5,15 +5,18 @@ import java.util.List;
 
 import org.spring.springboot.repository.BaseRepository;
 
-public interface BaseService<T extends Serializable> {
+public interface BaseService<T,D extends Serializable> {
 	
 	BaseRepository<T, Long> getRepository();
 	
-	List<T> findAll();
+	List<D> findAll();
 
-	T getOne(String id);
+	D findOne(String id);
 
-	T saveOrUpdate(T entity);
-	
 	void delete(String id);
+
+	D update(D entity);
+
+	D save(D entity);
+
 }

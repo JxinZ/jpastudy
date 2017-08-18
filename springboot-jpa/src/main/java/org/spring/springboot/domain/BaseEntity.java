@@ -9,6 +9,7 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.Version;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.beans.BeanUtils;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreType;
 
@@ -20,8 +21,8 @@ public abstract class BaseEntity implements Identifiable {
 	private static final long serialVersionUID = 3961004285380928190L;
 	@Id
 	@Column(length=32)
-	@GeneratedValue(generator = "uuid2")
-	@GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
+	@GeneratedValue(generator = "system-uuid")
+	@GenericGenerator(name = "system-uuid", strategy = "uuid")
 	private String id;
 	@Version
 	protected Integer version;
@@ -133,4 +134,9 @@ public abstract class BaseEntity implements Identifiable {
 		this.updateBy = updateBy;
 	}
 
+
+	public <D, T> D toDto(T entity,D dto) {
+		BeanUtils.copyProperties(entity, dto);
+		return dto;
+	}
 }

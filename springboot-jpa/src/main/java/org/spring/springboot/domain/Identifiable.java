@@ -33,4 +33,5 @@ public abstract interface Identifiable extends Serializable {
 
 	public abstract void setUpdateBy(String updateBy);
 
+	public abstract <D> D toDto();
 }

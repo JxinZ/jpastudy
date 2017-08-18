@@ -1,18 +1,12 @@
-package org.spring.springboot.domain;
+package org.spring.springboot.dto;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
-import org.spring.springboot.dto.ResouceDto;
+import org.spring.springboot.domain.Resouce;
 
 /**
  * @author PC-Jxin
  * 资源
  */
-@Entity
-@Table(name="resouce")
-public class Resouce extends TreeBaseEntity{
+public class ResouceDto extends TreeBaseDto{
 
     /**
 	 * 
@@ -22,25 +16,21 @@ public class Resouce extends TreeBaseEntity{
 	/**
      * 资源名称
      */
-	@Column(name="res_name",columnDefinition="varchar(32) COMMENT '用户名'")
     private String resName;
 	
 	/**
      * 资源地址
      */
-	@Column(name="res_address",columnDefinition="varchar(32) COMMENT '用户名'")
     private String resAddress;
 
     /**
      * 资源图标
      */
-	@Column(name="res_img",columnDefinition="varchar(64) COMMENT '密码'")
     private String resImg;
 
     /**
      * 描述
      */
-	@Column(name="description",columnDefinition="varchar(256) COMMENT '描述'")
     private String description;
 
 	public String getResName() {
@@ -83,8 +73,8 @@ public class Resouce extends TreeBaseEntity{
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public ResouceDto toDto() {
-		return super.toDto(this,new ResouceDto());
+	public Resouce toEntity() {
+		return super.toEntity(this,new Resouce());
 	}
 
 }
