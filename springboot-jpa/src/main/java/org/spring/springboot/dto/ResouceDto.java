@@ -1,5 +1,6 @@
 package org.spring.springboot.dto;
 
+import org.spring.springboot.base.dto.TreeBaseDto;
 import org.spring.springboot.domain.Resouce;
 
 /**

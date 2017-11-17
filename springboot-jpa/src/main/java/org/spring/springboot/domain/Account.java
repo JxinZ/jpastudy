@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import org.spring.springboot.base.domain.BaseEntity;
 import org.spring.springboot.dto.AccountDto;
 
 /**

@@ -1,5 +1,6 @@
 package org.spring.springboot.dto;
 
+import org.spring.springboot.base.dto.BaseDto;
 import org.spring.springboot.domain.Account;
 
 /**
